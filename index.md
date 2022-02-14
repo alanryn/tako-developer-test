@@ -39,8 +39,8 @@ Add a snippet called `non-member-message.liquid` to apply message:
 {% unless customer %}
 <a href="/account/login">Log-in</a> to your account to see if you are a VIP customer.
 {% endunless %}
-To find out more <a href+"/pages/contact-us">Contact Us</a>
- {% endraw %}
+To find out more <a href="/pages/contact-us">Contact Us</a>
+{% endraw %}
 ```
 - Create a customer account.  
 
