@@ -23,7 +23,8 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
+{% raw %}
+```
 {% if template contains 'member' %}
     {% if customer %}
         {% if customer.tags contains 'member' %}
@@ -37,6 +38,8 @@ Syntax highlighted code block
 {% else %}
     {{ content_for_layout }}
 {% endif %}
+```
+{% endraw %}
 
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
