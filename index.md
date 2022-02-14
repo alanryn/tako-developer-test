@@ -1,8 +1,10 @@
 ## Tako Agency Developer Test Solution  
 
-### Instructions
+### Instruction
 
 1. Create a “members only” page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
+
+### Answer
 
 - Create a new json template called `page.member.json` in the `templates` folder. This will be the template for the Member page.  
 
@@ -59,12 +61,19 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 ```
 {% endraw %}
 
+### Instruction  
+2. On the “members only” page, create a customizer block inside the theme editor that allows the client to upload an image that will display at the top of the page.  
 
-2. On the “members only” page, create a customizer block inside the theme editor that allows the client to upload an image that will display at the top of the page.
+## Answer
 
+### Instruction  
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
+### Answer
+
+### Instruction  
 4. On variant change/selection, show only images that are associated with that variant (you may need to add some more random images to a product to make this work.)
 
+### Answer
 
 
