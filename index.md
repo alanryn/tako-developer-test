@@ -31,8 +31,9 @@ In `theme.liquid` file add a test to determine if the user is logged-in:
 ```
 {% endraw %}
 
-Add a snippet called `non-member-message.liquid` to apply message:  
-```
+Add a snippet called `non-member-message.liquid` to apply message: 
+
+```html
 <p>This is the VIP members area. </p>
 {% unless customer %}
 <a href="/account/login">Log-in</a> to your account to see if you are a VIP customer.
@@ -43,7 +44,7 @@ To find out more <a href+"/pages/contact-us">Contact Us</a>
 
 - Set a tag of on the account of "vip".  
 
-- Change the navigation in the `header.liquid` section file to check for vip logged-in customer:
+- Change the navigation in the `header.liquid` section file to check for vip logged-in customer (make change for desktop and mobile versions):
  {% raw %}
  ```
  {% assign menu-name = "main-menu" %}
@@ -63,6 +64,5 @@ To find out more <a href+"/pages/contact-us">Contact Us</a>
 
 4. On variant change/selection, show only images that are associated with that variant (you may need to add some more random images to a product to make this work.)
 
-```
 
 
