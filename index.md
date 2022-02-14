@@ -25,7 +25,21 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
+```
+{% if template contains 'member' %}
+    {% if customer %}
+        {% if customer.tags contains 'member' %}
+            {{ content_for_layout }}
+        {% else %}
+            {% render 'non-member-message' %}
+        {% endif %}
+    {% else %}
+            {% render 'non-member-message' %}
+    {% endif %}
+{% else %}
+    {{ content_for_layout }}
+{% endif %}
+```
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ### Jekyll Themes
