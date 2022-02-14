@@ -31,10 +31,10 @@ Syntax highlighted code block
         {% if customer.tags contains 'member' %}
             {{ content_for_layout }}
         {% else %}
-            {% render 'non-member-message' %}
+            {% include 'non-member-message' %}
         {% endif %}
     {% else %}
-            {% render 'non-member-message' %}
+            {% include 'non-member-message' %}
     {% endif %}
 {% else %}
     {{ content_for_layout }}
