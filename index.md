@@ -68,6 +68,7 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 - Add a section called `client-upload-alan-ryan.liquid` Here's the code I added:  
 
 ```html
+{% raw %}
 <div class="member-container">
 {% for block in section.blocks %}
   <img src="{{ block.settings.my_image | img_url: '720x' }}" alt="{{ block.settings.my_image.alt | escape }}"/>
@@ -106,6 +107,7 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
     }]
 }
 {% endschema %}
+{% endraw %}
 ```
 ### Instruction  
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
