@@ -73,8 +73,8 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 {% for block in section.blocks %}
   <img src="{{ block.settings.my_image | img_url: '720x' }}" alt="{{ block.settings.my_image.alt | escape }}"/>
 {% endfor %}
-
 </div> 
+
 <style>
    .member-container img{
     width: 100%;
@@ -109,6 +109,9 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 {% endschema %}
 {% endraw %}
 ```
+- Now add the section to the `page.member.liquid` file.
+- In the theme customizer navigate to the member page. The `image upload` section will be available and it is possible to upload images to a grid.
+
 ### Instruction  
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
