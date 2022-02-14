@@ -6,13 +6,13 @@
 
 ### Answer
 
-- Create a new json template called `page.member.json` in the `templates` folder. This will be the template for the Member page.  
+- Create a new template called `page.member.liquid` in the `templates` folder. This will be the template for the Member page.  
 
-- Create a new page called `Member`. Make sure the page uses the `page.mamber.json` template ( if you don't see the the template is only available in the dropdown list after the theme is published)
+- Create a new page called `Member`. Make sure the page uses the `page.mamber.liquid` template ( if you don't see the the template, it is only available in the dropdown list after the theme is published)
 
 - While in the Shopify Admin, add a new menu with a `Member` page link. This menu will relplace the regular menu when a customer is logged-in and tagged as "vip".
 
-- Optional: Add a message in case non vip member gets to the member page without being logged in or tagged as "vip":
+- Optional: Add a message in case a non-vip member gets to the member page without being logged in or tagged as "vip":
 
 In `theme.liquid` file add a test to determine if the user is logged-in:
 {% raw %}
@@ -33,7 +33,7 @@ In `theme.liquid` file add a test to determine if the user is logged-in:
 ```
 {% endraw %}
 
-Add a snippet called `non-member-message.liquid` to apply message: 
+Add a snippet called `non-member-message.liquid` with the message: 
 
 ```html
 {% raw %}
@@ -46,9 +46,9 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 ```
 - Create a customer account.  
 
-- Set a tag of on the account of "vip".  
+- Set a 'vip' tag for the customer.  
 
-- Change the navigation in the `header.liquid` section file to check for vip logged-in customer (make change for desktop and mobile versions):
+- Change the navigation in the `header-classic.liquid` section file to check for a vip logged-in customer (remember to change  mobile version -- ``mobile-menu.liquid` and `mobile-menu-loop-liquid` in `snippets` folder):
  {% raw %}
  ```
  {% assign menu-name = "main-menu" %}
@@ -65,7 +65,48 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 2. On the “members only” page, create a customizer block inside the theme editor that allows the client to upload an image that will display at the top of the page.  
 
 ## Answer
+- Add a section called `client-upload-alan-ryan.liquid` Here's the code I added:  
 
+```html
+<div class="member-container">
+{% for block in section.blocks %}
+  <img src="{{ block.settings.my_image | img_url: '720x' }}" alt="{{ block.settings.my_image.alt | escape }}"/>
+{% endfor %}
+
+</div> 
+<style>
+   .member-container img{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .member-container{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 2rem auto; 
+    padding: 0 2rem;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Upload Image",
+    "settings": [],
+    "blocks": [{
+        "type": "image",
+        "name": "Upload an image",
+         "settings": [
+         {
+           "type": "image_picker",
+           "id": "my_image",
+           "label": "Member Image"
+         }
+       ]
+    }]
+}
+{% endschema %}
+```
 ### Instruction  
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
