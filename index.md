@@ -34,11 +34,13 @@ In `theme.liquid` file add a test to determine if the user is logged-in:
 Add a snippet called `non-member-message.liquid` to apply message: 
 
 ```html
-<p>This is the VIP members area. </p>
+{% raw %}
+<p>This is the VIP members area.</p>
 {% unless customer %}
 <a href="/account/login">Log-in</a> to your account to see if you are a VIP customer.
 {% endunless %}
 To find out more <a href+"/pages/contact-us">Contact Us</a>
+ {% endraw %}
 ```
 - Create a customer account.  
 
