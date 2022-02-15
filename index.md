@@ -117,6 +117,7 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 
 ### Answer
 - Edit the `snippets/product.liquid` file. I added the following code at line 287, before the social media icons:
+
 ```
 {% raw %}
  {% comment %}  Code to show Contact Us link when item is sold out {% endcomment %}
@@ -150,7 +151,9 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
  {% comment %}  End of code to show Contact Us link when item is sold out {% endcomment %}
 {% endraw %}
 ```
+
 - I then updated the `assets/app.js.liquid` file (line 552) to call the `variantAvailable` function when the variant changes:
+
 ```
 {% raw %}
 _updateVariantSelection(product, selectedOptions) {
