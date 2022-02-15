@@ -2,7 +2,7 @@
 
 ### Instruction
 
-1. Create a &ldquo;members only&rdquo; page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
+1. Create a "members only" page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
 
 ### Answer
 
@@ -12,14 +12,14 @@
 
 - While in the Shopify Admin, add a new menu called `Member Menu Alan Ryan` with a `Member` page link. This menu will replace the regular menu when a customer is logged-in and tagged as &ldquo;vip&rdquo;.
 
-- Optional: Add a message in case a non-vip member gets to the member page without being logged in or tagged as "vip":
+- Optional: Add a message in case a user gets to the member page without being logged and tagged as "vip":
 
-In `theme.liquid` file add a test to determine if the user is logged-in:
+In the `theme.liquid` file add a test to determine if the user is logged-in and a "vip":
 {% raw %}
 ```
 {% if template contains 'member' %}
     {% if customer %}
-        {% if customer.tags contains 'member' %}
+        {% if customer.tags contains 'vip' %}
             {{ content_for_layout }}
         {% else %}
             {% render 'non-member-message' %}
@@ -33,7 +33,7 @@ In `theme.liquid` file add a test to determine if the user is logged-in:
 ```
 {% endraw %}
 
-Add a snippet called `non-member-message.liquid` with the message: 
+Add a snippet called `non-member-message.liquid` with no access message: 
 
 ```html
 {% raw %}
@@ -41,7 +41,7 @@ Add a snippet called `non-member-message.liquid` with the message:
 {% unless customer %}
 <a href="/account/login">Log-in</a> to your account to see if you are a VIP customer.
 {% endunless %}
-To find out more <a href="/pages/contact-us">Contact Us</a>
+To find out more <a href="https://tako-dev-test.myshopify.com/pages/contact">Contact Us</a>
 {% endraw %}
 ```
 - Create a customer account.  
