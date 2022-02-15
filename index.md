@@ -155,7 +155,8 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
  {% comment %}  End of code to show "Contact Us" link when item is sold out {% endcomment %}
 {% endraw %}
 ```
-- The code creates an object variable to store key value pairs containing `variant.id` and `variant.available`. The js looops through the values and displays or hides the "Contact Us" link depending on the `variant.available` value
+- The code creates an object variable to store key value pairs containing `variant.id` and `variant.available`. The js looops through the values and displays or hides the "Contact Us" link depending on the `variant.available` value.  
+
 - I then updated the `assets/app.js.liquid` file (line 552) to call the `variantAvailable` function when the variant changes:
 
 ```
@@ -185,4 +186,18 @@ _updateVariantSelection(product, selectedOptions) {
 
 ### Answer
 
+- I wasn't sure what was required here. I would just hide the thumbnail images for the product and add an image for each of the variants. That way when you change variant you only see the image for that variant. Otherwise you could change the code in the `product__images.liquid` file -- hide the thumbnails if there is a variant image set and show them if there is no unique variant image.
 
+### Changes I made to the theme:
+
+- Added a menu called `Member Menu Alan Ryan`
+- Added a page called `Member Alan Ryan`
+- Created a customer called  `Alan Ryan` with tag of 'vip'
+- Updated the `theme.liquid` to display a message on the member page if customer is not logged-in and tagged as "vip"
+- Created `snippets/non-menu-message.liquid` to display message to non-vip customers.
+- Created a page template call `page.member.liquid`.
+- Created a section file called `client-upload-alan-ryan`.
+- Updated `header-classic.liquid` to switch menus on desktop.
+- Updated `snippets/mobile-menu.liquid` and `snippets/mobile-menu-loop` to switch menus on mobile.
+- Updated `snippets/product.liquid` to display "Contact Us" link for sold out variants.
+- Updated `assets/app.js.liquid` to call function on variant change.
