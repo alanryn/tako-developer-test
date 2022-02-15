@@ -62,9 +62,11 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 {% endraw %}
 
 ### Instruction  
+
 2. On the “members only” page, create a customizer block inside the theme editor that allows the client to upload an image that will display at the top of the page.  
 
-## Answer
+## Answer  
+
 - Add a section called `client-upload-alan-ryan.liquid` Here's the code I added:  
 
 ```html
@@ -113,14 +115,16 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 - In the theme customizer navigate to the member page. The `image upload` section will be available and it is possible to upload images to a grid.
 
 ### Instruction  
+
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
 ### Answer
+
 - Edit the `snippets/product.liquid` file. I added the following code at line 287, before the social media icons:
 
 ```
 {% raw %}
- {% comment %}  Code to show Contact Us link when item is sold out {% endcomment %}
+   {% comment %} Start of code to show "Contact Us" link when item is sold out {% endcomment %}
      {% comment %}  Store all the variants as an object {% endcomment %}
     {% capture 'variants' %}       
      {% for variant in product.variants %}
@@ -129,7 +133,7 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
      {% endfor %}
     {% endcapture %}  
     
-     {% comment %} Start of code to show and hide the "Contact Us" link {% endcomment %}
+     {% comment %} Show and hide the "Contact Us" link {% endcomment %}
       <div class="hideMe">
           <p><a class="contact-btn" href="pages/contact-us">Contact Us</a></p>       
       </div>
@@ -148,10 +152,10 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
               }
               variantAvailable(currentVariantId);
       </script>
- {% comment %}  End of code to show Contact Us link when item is sold out {% endcomment %}
+ {% comment %}  End of code to show "Contact Us" link when item is sold out {% endcomment %}
 {% endraw %}
 ```
-
+- The code creates an object variable to store key value pairs containing `variant.id` and `variant.available`. The js looops through the values and displays or hides the "Contact Us" link depending on the `variant.available` value
 - I then updated the `assets/app.js.liquid` file (line 552) to call the `variantAvailable` function when the variant changes:
 
 ```
