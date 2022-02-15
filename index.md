@@ -2,15 +2,15 @@
 
 ### Instruction
 
-1. Create a “members only” page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
+1. Create a &ldquo;members only&rdquo; page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
 
 ### Answer
 
 - Create a new template called `page.member.liquid` in the `templates` folder. This will be the template for the Member page.  
 
-- Create a new page called `Member`. Make sure the page uses the `page.mamber.liquid` template ( if you don't see the the template, it is only available in the dropdown list after the theme is published)
+- Create a new page called `Member Alan Ryan`. Make sure the page uses the `page.mamber.liquid` template ( if you don't see the the template, it is only available in the dropdown list after the theme is published)
 
-- While in the Shopify Admin, add a new menu with a `Member` page link. This menu will relplace the regular menu when a customer is logged-in and tagged as "vip".
+- While in the Shopify Admin, add a new menu called `Member Menu Alan Ryan` with a `Member` page link. This menu will replace the regular menu when a customer is logged-in and tagged as &ldquo;vip&rdquo;.
 
 - Optional: Add a message in case a non-vip member gets to the member page without being logged in or tagged as "vip":
 
