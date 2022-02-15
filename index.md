@@ -1,4 +1,6 @@
-## Tako Agency Developer Test Solution  
+## Tako Agency Shopify Developer Test Solution  
+
+## Theme version FLEX - ALAN RYAN - FEBRUARY 22
 
 ### Question
 
@@ -8,11 +10,11 @@
 
 - Create a new template called `page.member.liquid` in the `templates` folder. This will be the template for the Member page.  
 
-- Create a new page called `Member Alan Ryan`. Make sure the page uses the `page.mamber.liquid` template ( if you don't see the the template, it is only available in the dropdown list after the theme is published)
+- Create a new page called `Member Alan Ryan`. Make sure the page uses the `page.mamber.liquid` template (if you don't see the template, it is only available in the dropdown list after the theme is published)
 
 - While in the Shopify Admin, add a new menu called `Member Menu Alan Ryan` with a `Member` page link. This menu will replace the regular menu when a customer is logged-in and tagged as &ldquo;vip&rdquo;.
 
-- Optional: Add a message in case a user gets to the member page without being logged and tagged as "vip":
+- Optional: Add a message in case a user gets to the member page without being logged-in and tagged as "vip":
 
 In the `theme.liquid` file add a test to determine if the user is logged-in and a "vip":
 {% raw %}
@@ -33,7 +35,7 @@ In the `theme.liquid` file add a test to determine if the user is logged-in and 
 ```
 {% endraw %}
 
-Add a snippet called `non-member-message.liquid` with no access message: 
+Add a snippet called `non-member-message.liquid` with a no access message: 
 
 ```html
 {% raw %}
