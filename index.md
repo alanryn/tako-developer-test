@@ -199,7 +199,7 @@ _updateVariantSelection(product, selectedOptions) {
 - Created a customer called  `Alan Ryan` with tag of 'vip'.
 - Updated the `theme.liquid` to display a message on the member page if customer is not logged-in and tagged as "vip".
 - Created `snippets/non-menu-message.liquid` to display message to non-vip customers.
-- Created a page template call `page.member.liquid`.
+- Created a page template called `page.member.liquid`.
 - Created a section file called `client-upload-alan-ryan`.
 - Updated `header-classic.liquid` to switch menus on desktop.
 - Updated `snippets/mobile-menu.liquid` and `snippets/mobile-menu-loop` to switch menus on mobile.
