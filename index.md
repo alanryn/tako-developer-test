@@ -1,6 +1,6 @@
 ## Tako Agency Developer Test Solution  
 
-### Instruction
+### Question
 
 1. Create a "members only" page, that is only accessible to registered + logged in members who are tagged “vip.” In addition, create a link in the navigation menu to the members only page that is only visible to logged in members with the appropriate vip tag.
 
@@ -48,26 +48,28 @@ To find out more <a href="https://tako-dev-test.myshopify.com/pages/contact">Con
 
 - Set a 'vip' tag for the customer.  
 
-- Change the navigation in the `header-classic.liquid` section file to check for a vip logged-in customer (remember to change  mobile version -- ``mobile-menu.liquid` and `mobile-menu-loop-liquid` in `snippets` folder):
+- Change the navigation in the `header-classic.liquid` section file to check for a vip logged-in customer (remember to change  mobile version menu files -- `mobile-menu.liquid` and `mobile-menu-loop-liquid` in `snippets` folder):
  {% raw %}
  ```
  {% assign menu-name = "main-menu" %}
  {% if customer %}
         {% if customer.tags contains 'vip' %}
-          {% assign menu-name = "member-menu" %}
+          {% assign menu-name = "member-menu-alan-ryan" %}
         {% endif %}
  {% endif %}
 {% for link in linklists[menu-name].links %}
 ```
-{% endraw %}
+{% endraw %}  
 
-### Instruction  
+Now when a customer is logged in and tagged as "vip" the menu changes to display the Mamber option.
+
+### Question  
 
 2. On the “members only” page, create a customizer block inside the theme editor that allows the client to upload an image that will display at the top of the page.  
 
-## Answer  
+### Answer  
 
-- Add a section called `client-upload-alan-ryan.liquid` Here's the code I added:  
+- Add a section called `client-upload-alan-ryan.liquid`. Here's the code I added:  
 
 ```html
 {% raw %}
@@ -114,7 +116,7 @@ To find out more <a href="https://tako-dev-test.myshopify.com/pages/contact">Con
 - Now add the section to the `page.member.liquid` file.
 - In the theme customizer navigate to the member page. The `image upload` section will be available and it is possible to upload images to a grid.
 
-### Instruction  
+### Question 
 
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
@@ -181,7 +183,7 @@ _updateVariantSelection(product, selectedOptions) {
 {% endraw %}
 ```
 
-### Instruction  
+### Question  
 4. On variant change/selection, show only images that are associated with that variant (you may need to add some more random images to a product to make this work.)
 
 ### Answer
@@ -190,10 +192,10 @@ _updateVariantSelection(product, selectedOptions) {
 
 ### Changes I made to the theme:
 
-- Added a menu called `Member Menu Alan Ryan`
-- Added a page called `Member Alan Ryan`
-- Created a customer called  `Alan Ryan` with tag of 'vip'
-- Updated the `theme.liquid` to display a message on the member page if customer is not logged-in and tagged as "vip"
+- Added a menu called `Member Menu Alan Ryan`.
+- Added a page called `Member Alan Ryan`.
+- Created a customer called  `Alan Ryan` with tag of 'vip'.
+- Updated the `theme.liquid` to display a message on the member page if customer is not logged-in and tagged as "vip".
 - Created `snippets/non-menu-message.liquid` to display message to non-vip customers.
 - Created a page template call `page.member.liquid`.
 - Created a section file called `client-upload-alan-ryan`.
