@@ -116,6 +116,62 @@ To find out more <a href="/pages/contact-us">Contact Us</a>
 3. On any products or variants that are out of stock, show a “contact us” button that goes to the contact us page
 
 ### Answer
+- Edit the `snippets/product.liquid` file. I added the following code at line 287, before the social media icons:
+```
+{% raw %}
+ {% comment %}  Code to show Contact Us link when item is sold out {% endcomment %}
+     {% comment %}  Store all the variants as an object {% endcomment %}
+    {% capture 'variants' %}       
+     {% for variant in product.variants %}
+        {{variant.id}}:{{ variant.available | json }}
+        {% unless forloop.last %},{% endunless %}           
+     {% endfor %}
+    {% endcapture %}  
+    
+     {% comment %} Start of code to show and hide the "Contact Us" link {% endcomment %}
+      <div class="hideMe">
+          <p><a class="contact-btn" href="pages/contact-us">Contact Us</a></p>       
+      </div>
+    
+     {% comment %} Script to loop through object values--setting display to none for true values {% endcomment %}
+      <script>
+        const currentVariantId = {{ product.selected_or_first_available_variant.id }};
+        const data = { {{ variants }} };        
+        const variantAvailable = (id) => {
+               const hide = document.querySelector('.hideMe')
+                   if (data[id]) {
+                       hide.style.display = 'none'
+                    }
+                   else 
+                      hide.style.display = 'block'
+              }
+              variantAvailable(currentVariantId);
+      </script>
+ {% comment %}  End of code to show Contact Us link when item is sold out {% endcomment %}
+{% endraw %}
+```
+- I then updated the `assets/app.js.liquid` file (line 552) to call the `variantAvailable` function when the variant changes:
+```
+{% raw %}
+_updateVariantSelection(product, selectedOptions) {
+    if (!this._variantSelection) return;
+    const variant = getVariantFromSelectedOptions(product.variants, selectedOptions);
+    const isNotSelected = selectedOptions.some(option => option === 'not-selected'); // Update master select
+
+    if (variant) {
+      this._variantSelection.variant = variant.id;
+      
+      // added by Alan. Calling variantAvailable function in snippets/product.liquid.
+      // Passing the selected variant id
+      console.log("id:", variant.id);
+      variantAvailable(variant.id);
+    } else {
+      this._variantSelection.variant = isNotSelected ? 'not-selected' : 'unavailable';
+    }
+  }
+
+{% endraw %}
+```
 
 ### Instruction  
 4. On variant change/selection, show only images that are associated with that variant (you may need to add some more random images to a product to make this work.)
