@@ -192,6 +192,9 @@ _updateVariantSelection(product, selectedOptions) {
 
 - I wasn't sure what was required here. I would just hide the thumbnail images for the product and add an image for each of the variants. That way when you change variant you only see the image for that variant. Otherwise you could change the code in the `product__images.liquid` file -- hide the thumbnails if there is a variant image set and show them if there is no unique variant image.
 
+- UPDATED 19 Feb
+- I think I understand what you were asking here--to only show the images for a particular variant and have more than one image associated with each variant. I tried to implement this in the Dawn theme and it gets very complicated. An approach that others seem to use is to add a value to the 'alt' image attribute for all images associated with a particular variant. Then add a data attribute to the list item that displays the image, and hide and show the thumbnail images depending on the value of the data attribute. But I found it difficult to get it to work satisfactorily, especially due to the number of thumnail custimizable options available and the number of different media types, plus the 'alt' text is there for other reasons. Probably moving the functionality to an App would be the best solution.
+
 ### Changes I made to the theme:
 
 - Added a menu called `Member Menu Alan Ryan`.
